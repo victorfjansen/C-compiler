@@ -5,3 +5,4 @@
 EXTERN_ int Line;
 EXTERN_ int	Putback;
 EXTERN_ FILE *Infile;
+EXTERN_ struct token Token;
