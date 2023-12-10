@@ -43,8 +43,17 @@ void main(int argc, char *argv[]) {
         exit(1);
     }
 
+    // Create the output file
+    if ((Outfile = fopen("out.s", "w")) == NULL) {
+        fprintf(stderr, "Unable to create out.s: %s\n", strerror(errno));
+        exit(1);
+    }
+
     scan(&Token);                 // Get the first token from the input
     node = binexpr(0);                // Parse the expression in the file
     printf("%d\n", interpretAST(node));      // Calculate the final result
+    generateCode(node);
+
+    fclose(Outfile);
     exit(0);
 }
