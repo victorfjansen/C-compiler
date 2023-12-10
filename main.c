@@ -44,7 +44,7 @@ void main(int argc, char *argv[]) {
     }
 
     scan(&Token);                 // Get the first token from the input
-    node = binexpr();                // Parse the expression in the file
+    node = binexpr(0);                // Parse the expression in the file
     printf("%d\n", interpretAST(node));      // Calculate the final result
     exit(0);
 }
