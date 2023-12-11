@@ -3,15 +3,11 @@
 #include <string.h>
 #include <ctype.h>
 
-// Structure and enum definitions
-// Copyright (c) 2019 Warren Toomey, GPL3
-
-// Structure and enum definitions
-// Copyright (c) 2019 Warren Toomey, GPL3
+#define TEXTLEN 512 // lenghts of symbol input
 
 // Tokens
 enum {
-    T_EOF, T_PLUS, T_MINUS, T_STAR, T_SLASH, T_INT_LITERAL
+    T_EOF, T_PLUS, T_MINUS, T_STAR, T_SLASH, T_INT_LITERAL, T_PRINT, T_SEMI
 };
 
 // Token structure

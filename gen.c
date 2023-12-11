@@ -4,12 +4,12 @@
 
 // Given an AST, generate
 // assembly code recursively
-static int gentAST(struct ASTnode *n) {
+int genAST(struct ASTnode *n) {
     int leftReg, rightReg;
 
     // Get the left and right sub-tree values
-    if(n->left) leftReg = gentAST(n->left);
-    if(n->right) rightReg = gentAST(n->right);
+    if(n->left) leftReg = genAST(n->left);
+    if(n->right) rightReg = genAST(n->right);
 
     switch (n->op) {
         case A_ADD:  return (cgadd(leftReg, rightReg));
@@ -27,7 +27,21 @@ void generateCode(struct ASTnode *n) {
     int reg;
 
     cgpreamble();
-    reg = gentAST(n);
+    reg = genAST(n);
     cgprintint(reg);
     cgpostamble();
+}
+
+
+void genpreamble() {
+    cgpreamble();
+}
+void genpostamble() {
+    cgpostamble();
+}
+void genfreeregs() {
+    freeAllRegisters();
+}
+void genprintint(int reg) {
+    cgprintint(reg);
 }

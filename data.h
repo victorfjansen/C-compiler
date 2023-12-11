@@ -7,3 +7,4 @@ EXTERN_ int	Putback;
 EXTERN_ FILE *Infile;
 EXTERN_ FILE *Outfile;
 EXTERN_ struct token Token;
+EXTERN_ char Text[TEXTLEN + 1];
